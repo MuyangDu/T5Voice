@@ -317,8 +317,6 @@ If you would like to access **pretrained checkpoints** or **pre-exported models*
 
 ## Audio Samples
 
-## Audio Samples
-
 The following samples use different voices reading the sentence  
 “I’m an assistant here to help with questions, provide information, and support you in various tasks.”  
 as the **reference audio**, and synthesize the sentence  
