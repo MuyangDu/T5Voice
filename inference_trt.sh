@@ -24,7 +24,7 @@ python -m t5voice.inference_tensorrt \
     infer.top_k=80 \
     infer.top_p=1.0 \
     infer.temperature=0.85 \
-    +reference_audio_path="areference.wav" \
+    +reference_audio_path="reference.wav" \
     +reference_audio_text_path="reference.txt" \
     +text_path="text.txt" \
     +output_audio_path="output_t5voice.wav" \
