@@ -1,0 +1,89 @@
+defaults:
+  - _self_
+  - task: pt
+  - local_env: default
+
+# Experiment args
+mode: 'pt'
+device: gpu
+precision: 'no'
+seed: 2137
+
+model:
+  klass: t5voice
+  config_path: './t5voice/configs/config_small.json'
+  tokenizer: "english_ipa_tokenizer"
+  cross_attention_prior_type: "beta_binomial"
+  overwrite:
+    vocab_size: 181
+  add_config:
+    is_bf16: false
+  checkpoint_path: ''
+  restore_from: ''
+  random_init: true
+  compile: false # Pytorch 2.0
+
+codec_model:
+  klass: mel_codec_22khz_medium
+  sample_rate: 22050
+
+infer:
+  use_logits_processors: false 
+  top_k: 80
+  top_p: 1.0
+  temperature: 0.85
+  max_target_len: 1000
+  max_predict_samples: 20
+
+data:
+  train_filelist_path: 
+    - "./t5voice/filelists/libritts/train_filelist.txt"
+    - "./t5voice/filelists/hifitts/train_filelist.txt"
+  test_filelist_path:
+    - "./t5voice/filelists/libritts/dev_filelist.txt"
+    - "./t5voice/filelists/hifitts/dev_filelist.txt"
+  max_allowed_duration: 20.0
+  min_allowed_duration_for_test: 10.0
+  num_workers: 4
+
+optim:
+  name: adamw
+  base_lr: 2e-4
+  batch_size: 32
+  total_steps: 500000
+  epochs: -1 # If it's > 0 it overwrites total_steps
+  warmup_steps: 10000
+  lr_scheduler: cosine
+  weight_decay: 0.0
+  grad_clip: 1.0
+  grad_acc: 4
+  final_cosine: 1e-4
+  attn_prior_start_scale_down_step: 80000
+  attn_prior_end_step: 120000
+  use_attn_ctc_loss: true
+  ctc_loss_scale: 0.1
+  ctc_loss_start_step: 150000
+  ctc_loss_end_step: 1e100
+
+eval:
+  every_steps: 10000
+  steps: 500
+  max_alignment_images: 20
+
+
+checkpoint:
+  every_steps: 10000
+
+logging:
+  neptune: false
+  neptune_creds:
+    project:
+    api_token:
+    tags: ''
+  every_steps: 100
+  grad_l2: true
+  weights_l2: true
+
+hydra:
+  job:
+    chdir: True

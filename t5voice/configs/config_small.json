@@ -1,0 +1,27 @@
+{
+  "_name_or_path": "",
+  "architectures": [
+    "T5Voice"
+  ],
+  "d_ff": 4096,
+  "d_kv": 64,
+  "d_model": 768,
+  "decoder_start_token_id": 0,
+  "dropout_rate": 0.1,
+  "eos_token_id": 1,
+  "feed_forward_proj": "gated-gelu",
+  "initializer_factor": 1.0,
+  "is_encoder_decoder": true,
+  "layer_norm_epsilon": 1e-06,
+  "model_type": "t5",
+  "num_decoder_layers": 8,
+  "num_heads": 8,
+  "num_layers": 4,
+  "output_past": true,
+  "pad_token_id": 0,
+  "relative_attention_num_buckets": 32,
+  "tie_word_embeddings": false,
+  "vocab_size": 32128,
+  "num_codebooks": 8,
+  "codec_size": 1000
+}

@@ -1,0 +1,143 @@
+name: "t5voice"
+backend: "python"
+max_batch_size: 1
+
+model_transaction_policy {
+  decoupled: true
+}
+
+input [
+  {
+    name: "ref_text"
+    data_type: TYPE_STRING
+    dims: [ 1 ]
+  },
+  {
+    name: "text"
+    data_type: TYPE_STRING
+    dims: [ 1 ]
+  },
+  {
+    name: "ref_audio"
+    data_type: TYPE_FP32
+    dims: [ -1 ]
+  },
+  {
+    name: "temperature"
+    data_type: TYPE_FP32
+    dims: [ 1 ]
+    optional: true
+  },
+  {
+    name: "top_k"
+    data_type: TYPE_INT32
+    dims: [ 1 ]
+    optional: true
+  },
+  {
+    name: "top_p"
+    data_type: TYPE_FP32
+    dims: [ 1 ]
+    optional: true
+  },
+  {
+    name: "max_length"
+    data_type: TYPE_INT32
+    dims: [ 1 ]
+    optional: true
+  }
+]
+
+output [
+  {
+    name: "audio_chunk"
+    data_type: TYPE_FP32
+    dims: [ -1 ]
+  }
+]
+
+instance_group [
+  {
+    count: 1
+    kind: KIND_GPU
+    gpus: [ 0 ]
+  }
+]
+
+# Model parameters
+parameters: {
+  key: "encoder_engine_path"
+  value: {
+    string_value: "/engines/t5_encoder_fp16.engine"
+  }
+}
+
+parameters: {
+  key: "decoder_engine_path"
+  value: {
+    string_value: "/engines/t5_decoder_fp16.engine"
+  }
+}
+
+parameters: {
+  key: "codec_encode_engine_path"
+  value: {
+    string_value: "/engines/codec_encode_fp32.engine"
+  }
+}
+
+parameters: {
+  key: "codec_decode_engine_path"
+  value: {
+    string_value: "/engines/codec_decode_fp32.engine"
+  }
+}
+
+parameters: {
+  key: "language"
+  value: {
+    string_value: "en"
+  }
+}
+
+parameters: {
+  key: "num_codebooks"
+  value: {
+    string_value: "8"
+  }
+}
+
+parameters: {
+  key: "decoder_vocab_size"
+  value: {
+    string_value: "1002"
+  }
+}
+
+parameters: {
+  key: "num_decoder_special_tokens"
+  value: {
+    string_value: "2"
+  }
+}
+
+parameters: {
+  key: "chunk_size"
+  value: {
+    string_value: "50"
+  }
+}
+
+parameters: {
+  key: "overlap_size"
+  value: {
+    string_value: "2"
+  }
+}
+
+parameters: {
+  key: "hop_size"
+  value: {
+    string_value: "256"
+  }
+}
