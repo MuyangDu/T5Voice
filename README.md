@@ -46,7 +46,7 @@ T5Voice adapts the T5 architecture for text-to-speech synthesis. The model treat
 - **Codec Encoder**: Converts waveforms at 22kHz into codec tokens. Used to extract codec tokens from the reference audio.
 - **Codec Decoder**: Converts codec tokens back to waveforms at 22kHz. Used to convert synthesized codec tokens to waveforms.
 
-<img src="images/t5voice_architecture.png" alt="Architecture" width="50%">
+<img src="images/t5voice_architecture.png" alt="Architecture" width="60%">
 
 ## Environment Setup
 
@@ -213,17 +213,17 @@ Then open your browser and navigate to `http://localhost:6007` to view training 
 
 On the **SCALARS** tab, you can view all the training and evaluation loss curves.
 
-<img src="images/tensorboard_scalars.jpg" alt="tensorboard_scalars" width="50%">
+<img src="images/tensorboard_scalars.jpg" alt="tensorboard_scalars" width="70%">
 
 On the **IMAGES** tab, you can view the alignment visualizations (decoder cross-attention weights).
 
-<img src="images/tensorboard_images.jpg" alt="tensorboard_images" width="50%">
+<img src="images/tensorboard_images.jpg" alt="tensorboard_images" width="70%">
 
 A well-trained model should exhibit a clear monotonic alignment.
 
 On the **AUDIO** tab, you can listen to the ground-truth audio samples and their corresponding generated (predicted) audio.
 
-<img src="images/tensorboard_audio.jpg" alt="tensorboard_audio" width="50%">
+<img src="images/tensorboard_audio.jpg" alt="tensorboard_audio" width="70%">
 
 Note that the beginning of the predicted audio comes from the ground-truth audio and serves as the reference for the decoder. Please focus on the latter part of the audio to determine whether the model is able to generate intelligible speech.
 
@@ -328,7 +328,15 @@ as the **reference audio**, and synthesize the sentence
   <summary>🎧 Female 1 👩 Click to listen</summary>
   Reference:
 
+
+https://github.com/user-attachments/assets/1fe05c5b-7fb8-4ee2-9cb7-0a0edab02290
+
+
   Synthesized:
+
+
+https://github.com/user-attachments/assets/a1215714-2eb1-45ff-8c37-696cdd0e31cd
+
 
 </details>
 
@@ -336,7 +344,15 @@ as the **reference audio**, and synthesize the sentence
   <summary>🎧 Female 2 👩 Click to listen</summary>
   Reference:
 
+
+https://github.com/user-attachments/assets/543d7eba-95f0-474f-96e9-80b55d530c58
+
+
   Synthesized:
+
+
+https://github.com/user-attachments/assets/cae0a7f8-2a44-470c-abe7-61a9fd8ef839
+
 
 </details>
 
@@ -344,7 +360,15 @@ as the **reference audio**, and synthesize the sentence
   <summary>🎧 Female 3 👩 Click to listen</summary>
   Reference:
 
+
+https://github.com/user-attachments/assets/09a2a569-5207-4341-9a83-d28e5c72d711
+
+
   Synthesized:
+
+
+https://github.com/user-attachments/assets/bdb9b45c-5b37-489c-95c6-f0c18628b30f
+
 
 </details>
 
@@ -352,7 +376,15 @@ as the **reference audio**, and synthesize the sentence
   <summary>🎧 Male 1 👨 Click to listen</summary>
   Reference:
 
+
+https://github.com/user-attachments/assets/e36c0bb6-f228-4884-adfe-1da1ec6dcb43
+
+
   Synthesized:
+
+
+https://github.com/user-attachments/assets/eb64d263-9192-48b6-a490-53f557374180
+
 
 </details>
 
@@ -360,7 +392,15 @@ as the **reference audio**, and synthesize the sentence
   <summary>🎧 Male 2 👨 Click to listen</summary>
   Reference:
 
+
+https://github.com/user-attachments/assets/e1a3d358-d316-42bd-894b-ef3805f4b628
+
+
   Synthesized:
+
+
+https://github.com/user-attachments/assets/06d4f419-63e4-4d6f-aefb-ba3e64b7db02
+
 
 </details>
 
@@ -368,7 +408,15 @@ as the **reference audio**, and synthesize the sentence
   <summary>🎧 Male 3 👨 Click to listen</summary>
   Reference:
 
+
+https://github.com/user-attachments/assets/99b41959-3862-4ca3-9f5c-e6caf7d4a2e5
+
+
   Synthesized:
+
+
+https://github.com/user-attachments/assets/f2c8d4b2-362f-4fdd-b709-385d1a2b9530
+
 
 </details>
 
