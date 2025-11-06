@@ -264,7 +264,7 @@ bash run_server.sh
 Then, run the T5Voice client to send a TTS request to the server and receive streaming responses:
 
 ```bash
-pip install requirements_client.txt
+pip install -r requirements_client.txt
 bash run_client.sh
 ```
 
