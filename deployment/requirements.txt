@@ -1,0 +1,5 @@
+tensorrt==10.13.3.9
+torch==2.5.1
+phonemizer==3.3.0
+webrtcvad==2.0.10
+librosa==0.11.0
