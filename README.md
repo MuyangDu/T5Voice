@@ -441,8 +441,7 @@ Please also consider citing the T5-TTS papers listed in the [References](#refere
 
 ## Contact
 
-For questions or feedback, please open an issue on GitHub.
-If you need direct technical support, you can fill out this [form](https://forms.cloud.microsoft/r/p19ucjTcGd).
+If you have any questions, issues, or need technical support, please feel free to contact us by filling out this [form](https://forms.cloud.microsoft/r/p19ucjTcGd).
 
 ## References
 
